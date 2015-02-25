@@ -14,7 +14,12 @@
             return false;
         }
     }
-    export function reverse(circle: View.Circle) {
+    export function reverse(circle: View.Circle, height, width) {
+        if(Math.abs(circle.y-height)>Math.abs(circle.x-width)) {
+            circle.vy = -1*vy;
+        } else {
+            circle.vx = -1*vx;
+        }
         return {
             vx: circle.vx,
             vy: circle.vy
