@@ -1,3 +1,9 @@
+/// <reference path="../../typings/easeljs/easeljs.d.ts" />
+/// <reference path="../../typings/createjs-lib/createjs-lib.d.ts" />
+/// <reference path="Circle.ts" />
+/// <reference path="Stage.ts" />
+/// <reference path="../Data/QuadTree.ts" />
+/// <reference path="../Data/Core.ts" />
 var View;
 (function (View) {
     View.stage;
