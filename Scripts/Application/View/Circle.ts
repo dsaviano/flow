@@ -13,31 +13,19 @@ module View {
         }
         move() {
             this.isColliding = false;
+            if (Data.checkBoundary(this, View.height, View.width)) {
+                var velocity = Data.reverse(this);
+                this.vx = velocity.vx;
+                this.vy = velocity.vy;
+            }
             this.x += this.vx;
             this.y += this.vy;
-            if (this.x >= View.stage.getBounds().x) {
-                //reverse vx
-            }
-            if (this.y >= View.stage.getBounds().y) {
-                //reverse vy
-            }
-           
-            this._draw();
         }
         inertia() {
              //slow down vx and vy by a certain factor to simulate inertia
         }
         setCollision(colliding: boolean) {
             this.isColliding = colliding;
-            this._draw();
-        }
-        _draw() {            
-            if (this.isColliding) {
-                //handle collision
-            }
-            else {
-                View.stage.update();
-            }
         }
     }
 } 

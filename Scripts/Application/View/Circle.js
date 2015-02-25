@@ -16,27 +16,19 @@ var View;
         }
         Circle.prototype.move = function () {
             this.isColliding = false;
+            if (Data.checkBoundary(this, View.height, View.width)) {
+                var velocity = Data.reverse(this);
+                this.vx = velocity.vx;
+                this.vy = velocity.vy;
+            }
             this.x += this.vx;
             this.y += this.vy;
-            if (this.x >= View.stage.getBounds().x) {
-            }
-            if (this.y >= View.stage.getBounds().y) {
-            }
-            this._draw();
         };
         Circle.prototype.inertia = function () {
             //slow down vx and vy by a certain factor to simulate inertia
         };
         Circle.prototype.setCollision = function (colliding) {
             this.isColliding = colliding;
-            this._draw();
-        };
-        Circle.prototype._draw = function () {
-            if (this.isColliding) {
-            }
-            else {
-                View.stage.update();
-            }
         };
         return Circle;
     })(createjs.Shape);

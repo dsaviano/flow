@@ -9,7 +9,11 @@ var View;
     View.stage;
     View.tree;
     View.circles;
+    View.width;
+    View.height;
     function setupView(circleCount, width, height) {
+        this.width = width;
+        this.height = height;
         var canvas = document.getElementById("main");
         View.stage = new View.Stage(0.1, width, height, canvas);
         View.tree = new QuadTree({

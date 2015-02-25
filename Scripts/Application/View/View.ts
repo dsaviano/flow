@@ -9,7 +9,11 @@ module View {
     export var stage: createjs.Stage;
     export var tree: QuadTree;
     export var circles: Circle[];
+    export var width: number;
+    export var height: number;
     export function setupView(circleCount, width, height) {
+        this.width = width;
+        this.height = height;
         var canvas = document.getElementById("main");
         View.stage = new View.Stage(0.1, width, height, canvas);
         View.tree = new QuadTree({
@@ -22,7 +26,7 @@ module View {
         for (var i = 0; i <= circleCount; i++) {
             var circle = new View.Circle(Math.ceil(Math.random() * 10) + 2);
             circle.x = Math.random() * width;
-            circle.y = Math.random() * height
+            circle.y = Math.random() * height;
             //
             circle.vx = 20;
             circle.vy = 20;
